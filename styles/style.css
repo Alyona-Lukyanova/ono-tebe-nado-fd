@@ -18,10 +18,22 @@ header {
 
 .header__menu-list {
   display: flex;
-  gap: 14px;
-  margin-left: 50px;
-  list-style-position: inside;
-  list-style-type: circle;
+  gap: 8px;
+  margin-bottom: 5px;
+  margin-left:  25px;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.header__menu-list li {
+  position: relative;
+  padding-left: 1.4em;
+}
+
+.header__menu-list li::before {
+  content: "◦";
+  position: absolute;
+  left: 5px;
 }
 
 .inactive-link {
@@ -32,9 +44,8 @@ header {
   pointer-events: none; 
 }
 
-.header__menu-list li:first-child {
-  padding-left: 0;
-  list-style-type: none;
+.header__menu-list li:first-child::before {
+  content: none;
 }
 
 .header__logo {
@@ -45,7 +56,7 @@ header {
 .address {
   display: block;
   margin: 0;
-  padding: 0;
+  padding-bottom: 5px;
   color: inherit;
   font-style: normal;
   line-height: 25px;
@@ -58,20 +69,31 @@ header .address {
 /* Классы для main */
 
 .cover {
+  position: relative;
   background-image: url("../images/cover.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .overlay {
-  position: relative; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.cover__container {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
   height: 100%;
   padding: 50px;
-  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .cover__title {
@@ -119,7 +141,7 @@ header .address {
   color: white;
   font-size: 22px;
   text-transform: uppercase;
-  word-spacing: 18px;
+  word-spacing: 19px;
 }
 
 .bet-button {
@@ -169,13 +191,20 @@ header .address {
 }
 
 .card {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+.card__container {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 334px;
   min-height: 596px;
   padding: 48px 40px;
-  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .card_type_film {
